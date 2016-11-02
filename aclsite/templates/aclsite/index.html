@@ -1,0 +1,9 @@
+{% if latest_article_list %}
+    <ul>
+    {% for articles in latest_article_list %}
+        <li><a href='/aclsite/{{ articles.id }}/'>{{ articles.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No articles</p>
+{% endif %}
