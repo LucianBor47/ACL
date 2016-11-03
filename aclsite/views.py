@@ -6,8 +6,11 @@ from .models import Article
 
 def index(request):
     latest_article_list = Article.objects.order_by('-pub_date')[:5]
-    context = {'latest_article_list': latest_article_list}
-    return render(request, 'aclsite/index.html', context)
+    title = 'Adventures on the command line'
+    return render(request, 'aclsite/index.html', {
+        'latest_article_list': latest_article_list,
+        'title': title
+        })
 
 def details(request, article_id):
     try:
@@ -27,4 +30,10 @@ def content(request, article_id):
     return render(request, 'aclsite/content.html', {
         'title': title,
         'content': content 
+        })
+
+def about(request):
+    title = 'About us'
+    return render(request, 'aclsite/about.html', {
+        'title': title
         })

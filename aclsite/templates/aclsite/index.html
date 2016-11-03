@@ -1,9 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+
+<h2>Here is a list of our most recent articles:</h2>
 {% if latest_article_list %}
     <ul>
     {% for articles in latest_article_list %}
-        <li><a href='/aclsite/{{ articles.id }}/'>{{ articles.title }}</a></li>
+        <li><a href='/aclsite/{{ articles.id }}/content'><h4>{{ articles.title }}</h4></a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No articles</p>
 {% endif %}
+{% endblock %}
